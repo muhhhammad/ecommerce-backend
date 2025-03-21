@@ -5,7 +5,7 @@ public class AuthResponse {
     private String jwt;
     private String message;
 
-    public AuthResponse(){
+    public AuthResponse() {
 
     }
 
