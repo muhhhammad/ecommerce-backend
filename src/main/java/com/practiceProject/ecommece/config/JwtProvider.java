@@ -17,7 +17,6 @@ public class JwtProvider {
     SecretKey key = Keys.hmacShaKeyFor(JwtConstant.SECRET_KEY.getBytes());
 
     public String generateToken(Authentication auth) {
-
         return Jwts.builder()
                 .setIssuedAt(new Date()) // Token issue time
                 .setExpiration(new Date(new Date().getTime() + 846000000)) // Expiration time (10 days)
@@ -27,9 +26,7 @@ public class JwtProvider {
     }
 
     public String getEmailFromToken(String Jwt) {
-
         Jwt = Jwt.substring(7); // Remove "Bearer " prefix
-
         Claims claims = Jwts.parserBuilder()
                 .setSigningKey(key) // Set secret key
                 .build()
