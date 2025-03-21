@@ -1,9 +1,9 @@
 package com.practiceProject.ecommece.controller;
 
-import com.practiceProject.ecommece.exception.ProductException;
-import com.practiceProject.ecommece.exception.UserException;
 import com.practiceProject.ecommece.entity.Rating;
 import com.practiceProject.ecommece.entity.User;
+import com.practiceProject.ecommece.exception.ProductException;
+import com.practiceProject.ecommece.exception.UserException;
 import com.practiceProject.ecommece.request.RatingRequest;
 import com.practiceProject.ecommece.service.RatingService;
 import com.practiceProject.ecommece.service.UserService;
@@ -29,7 +29,7 @@ public class RatingController {
 
     @PostMapping("/create")
     public ResponseEntity<Rating> createRating(@RequestBody RatingRequest request,
-                                               @RequestHeader("Authorization") String jwt) throws UserException, ProductException{
+                                               @RequestHeader("Authorization") String jwt) throws UserException, ProductException {
 
         User user = userService.findUserProfileByJwt(jwt); // Retrieve the user profile using the JWT token
         Rating rating = ratingService.createRating(request, user); // Create a new rating associated with the user
@@ -39,14 +39,13 @@ public class RatingController {
 
     @GetMapping("/product/{productId}")
     public ResponseEntity<List<Rating>> getProductsRating(@RequestBody Long productId,
-                                                          @RequestHeader("Authorization") String jwt) throws UserException, ProductException{
+                                                          @RequestHeader("Authorization") String jwt) throws UserException, ProductException {
 
         User user = userService.findUserProfileByJwt(jwt); // Retrieve the user profile using the JWT token
         List<Rating> rating = ratingService.getProductRating(productId); // Fetch the ratings for the specified product
 
         return new ResponseEntity<>(rating, HttpStatus.CREATED); // Return the list of ratings with HTTP status 201 (CREATED) - (should be OK (200) instead)
     }
-
 
 
 }

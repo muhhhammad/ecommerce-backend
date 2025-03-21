@@ -1,9 +1,9 @@
 package com.practiceProject.ecommece.controller;
 
-import com.practiceProject.ecommece.exception.CartItemException;
-import com.practiceProject.ecommece.exception.UserException;
 import com.practiceProject.ecommece.entity.CartItem;
 import com.practiceProject.ecommece.entity.User;
+import com.practiceProject.ecommece.exception.CartItemException;
+import com.practiceProject.ecommece.exception.UserException;
 import com.practiceProject.ecommece.response.ApiResponse;
 import com.practiceProject.ecommece.service.CartItemService;
 import com.practiceProject.ecommece.service.UserService;
@@ -27,7 +27,7 @@ public class CartItemController {
 
     @DeleteMapping("/{cartItemId}")
     public ResponseEntity<ApiResponse> deleteCartItem(@PathVariable Long cartItemId,
-                                                      @RequestHeader("Authorization") String jwt) throws UserException, CartItemException{
+                                                      @RequestHeader("Authorization") String jwt) throws UserException, CartItemException {
 
         // Retrieve the user profile using the JWT token
         User user = userService.findUserProfileByJwt(jwt);
@@ -47,7 +47,7 @@ public class CartItemController {
     @PutMapping("/{cartItemId}")
     public ResponseEntity<CartItem> updateCartItem(@RequestBody CartItem cartItem,
                                                    @PathVariable Long cartItemId,
-                                                   @RequestHeader("Authorization") String jwt) throws UserException, CartItemException{
+                                                   @RequestHeader("Authorization") String jwt) throws UserException, CartItemException {
 
         // Retrieve the user profile using the JWT token
         User user = userService.findUserProfileByJwt(jwt);
@@ -58,7 +58,6 @@ public class CartItemController {
         // Return the updated cart item with HTTP status 200 (OK)
         return new ResponseEntity<>(updatedCartItem, HttpStatus.OK);
     }
-
 
 
 }

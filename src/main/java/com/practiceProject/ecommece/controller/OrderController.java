@@ -1,11 +1,11 @@
 package com.practiceProject.ecommece.controller;
 
 
-import com.practiceProject.ecommece.exception.OrderException;
-import com.practiceProject.ecommece.exception.UserException;
 import com.practiceProject.ecommece.entity.Address;
 import com.practiceProject.ecommece.entity.Order;
 import com.practiceProject.ecommece.entity.User;
+import com.practiceProject.ecommece.exception.OrderException;
+import com.practiceProject.ecommece.exception.UserException;
 import com.practiceProject.ecommece.service.OrderService;
 import com.practiceProject.ecommece.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,9 +60,6 @@ public class OrderController {
         return new ResponseEntity<>(order, HttpStatus.OK); // Return the order with HTTP status 200 (OK) (was incorrectly using CREATED)
 
     }
-
-
-
 
 
 }

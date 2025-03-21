@@ -1,7 +1,7 @@
 package com.practiceProject.ecommece.controller;
 
-import com.practiceProject.ecommece.exception.OrderException;
 import com.practiceProject.ecommece.entity.Order;
+import com.practiceProject.ecommece.exception.OrderException;
 import com.practiceProject.ecommece.repository.OrderRepository;
 import com.practiceProject.ecommece.response.ApiResponse;
 import com.practiceProject.ecommece.response.PaymentLinkResponse;
@@ -28,7 +28,6 @@ public class PaymentController {
     // Once configured, the application will run without any issues.
     // If the API credentials are missing, this code will NOT work.
     // However, the code itself is well-written, complete, and properly commented for easy understanding.
-
 
 
     @Value("${razorpay.api.key}")
@@ -61,7 +60,7 @@ public class PaymentController {
 
             //setting the total price of the items bought by the User
             //Also setting the currency to the PKR
-            JSONObject paymentLinkRequest  = new JSONObject();
+            JSONObject paymentLinkRequest = new JSONObject();
             paymentLinkRequest.put("Amount", order.getTotalPrice() * 278);
             paymentLinkRequest.put("currency", "PKR");
 
@@ -112,10 +111,10 @@ public class PaymentController {
 
         Order order = orderService.findOrderById(orderId);
         RazorpayClient razorpayClient = new RazorpayClient(apiKey, apiSecret);
-        try{
+        try {
 
             Payment payment = razorpayClient.payments.fetch(paymentId);
-            if(payment.get("status").equals("captured")){
+            if (payment.get("status").equals("captured")) {
 
                 order.getPaymentDetails().setPaymentId(paymentId);
                 order.getPaymentDetails().setPaymentStatus("COMPLETED");//Setting the Payment status to "COMPLETED"
@@ -138,8 +137,6 @@ public class PaymentController {
 
 
     }
-
-
 
 
 }

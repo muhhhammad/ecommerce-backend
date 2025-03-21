@@ -1,8 +1,8 @@
 package com.practiceProject.ecommece.controller;
 
 
-import com.practiceProject.ecommece.exception.ProductException;
 import com.practiceProject.ecommece.entity.Product;
+import com.practiceProject.ecommece.exception.ProductException;
 import com.practiceProject.ecommece.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -26,11 +26,11 @@ public class ProductController {
 
     //Will return all the products on "/product" endpoint
     @GetMapping("/product")
-    public ResponseEntity<Page<Product>> findProductByCategoryHandler(@RequestParam String category,     @RequestParam List<String> color,
-                                                                      @RequestParam List<String> size,   @RequestParam Integer pageNumber,
-                                                                      @RequestParam Integer minPrice,    @RequestParam Integer maxPrice,
+    public ResponseEntity<Page<Product>> findProductByCategoryHandler(@RequestParam String category, @RequestParam List<String> color,
+                                                                      @RequestParam List<String> size, @RequestParam Integer pageNumber,
+                                                                      @RequestParam Integer minPrice, @RequestParam Integer maxPrice,
                                                                       @RequestParam Integer minDiscount, @RequestParam String sort,
-                                                                      @RequestParam String stock,        @RequestParam Integer pageSize){
+                                                                      @RequestParam String stock, @RequestParam Integer pageSize) {
 
         Page<Product> res = productService.getAllProduct(category, color, size, pageNumber, minPrice, maxPrice, minDiscount, sort, stock, pageSize);
 
@@ -52,7 +52,7 @@ public class ProductController {
     }
 
 
-      //Will return a product searched by Name
+    //Will return a product searched by Name
 //    @GetMapping("/product/search")
 //    public ResponseEntity<List<Product>> searchProductHandler(@RequestParam String productToSearch){
 //
@@ -62,9 +62,6 @@ public class ProductController {
 //
 //
 //    }
-
-
-
 
 
 }

@@ -1,9 +1,9 @@
 package com.practiceProject.ecommece.controller;
 
-import com.practiceProject.ecommece.exception.ProductException;
-import com.practiceProject.ecommece.exception.UserException;
 import com.practiceProject.ecommece.entity.Review;
 import com.practiceProject.ecommece.entity.User;
+import com.practiceProject.ecommece.exception.ProductException;
+import com.practiceProject.ecommece.exception.UserException;
 import com.practiceProject.ecommece.request.ReviewRequest;
 import com.practiceProject.ecommece.service.ReviewService;
 import com.practiceProject.ecommece.service.UserService;
@@ -39,7 +39,7 @@ public class ReviewController {
     }
 
     @GetMapping("/product/{productId}")
-    public ResponseEntity<List<Review>> getProductsReview(@PathVariable Long productId) throws UserException, ProductException{
+    public ResponseEntity<List<Review>> getProductsReview(@PathVariable Long productId) throws UserException, ProductException {
 
         List<Review> reviewList = reviewService.getAllProductReview(productId); // Fetch all reviews for the specified product
         return new ResponseEntity<>(reviewList, HttpStatus.ACCEPTED); // Return the list of reviews with HTTP status 202 (ACCEPTED) - (should be OK (200) instead)

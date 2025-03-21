@@ -1,7 +1,7 @@
 package com.practiceProject.ecommece.controller;
 
-import com.practiceProject.ecommece.exception.UserException;
 import com.practiceProject.ecommece.entity.User;
+import com.practiceProject.ecommece.exception.UserException;
 import com.practiceProject.ecommece.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +23,7 @@ public class UserController {
     }
 
     @GetMapping("/profile")
-    public ResponseEntity<User> getUserProfileHandler(@RequestHeader("Authorization") String jwt) throws UserException{
+    public ResponseEntity<User> getUserProfileHandler(@RequestHeader("Authorization") String jwt) throws UserException {
 
         //Whenever we log into our ecommerce
         //It will Save JSON Web Token into our local Storage

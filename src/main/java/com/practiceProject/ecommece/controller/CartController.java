@@ -1,9 +1,9 @@
 package com.practiceProject.ecommece.controller;
 
-import com.practiceProject.ecommece.exception.ProductException;
-import com.practiceProject.ecommece.exception.UserException;
 import com.practiceProject.ecommece.entity.Cart;
 import com.practiceProject.ecommece.entity.User;
+import com.practiceProject.ecommece.exception.ProductException;
+import com.practiceProject.ecommece.exception.UserException;
 import com.practiceProject.ecommece.request.AddItemRequest;
 import com.practiceProject.ecommece.response.ApiResponse;
 import com.practiceProject.ecommece.service.CartService;
@@ -42,7 +42,7 @@ public class CartController {
     @PutMapping("/add")
     //@Operation(description = "Add item to Cart) //This Annotation is for Documentation And It is Completely Optional
     public ResponseEntity<ApiResponse> addItemToCart(@RequestBody AddItemRequest request,
-                                                     @RequestHeader("Authorization") String jwt) throws UserException, ProductException{
+                                                     @RequestHeader("Authorization") String jwt) throws UserException, ProductException {
 
         //Finding user through JSON Web Token
         User user = userService.findUserProfileByJwt(jwt);

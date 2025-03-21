@@ -1,9 +1,9 @@
 package com.practiceProject.ecommece.controller;
 
 import com.practiceProject.ecommece.config.JwtProvider;
-import com.practiceProject.ecommece.exception.UserException;
 import com.practiceProject.ecommece.entity.Cart;
 import com.practiceProject.ecommece.entity.User;
+import com.practiceProject.ecommece.exception.UserException;
 import com.practiceProject.ecommece.repository.UserRepository;
 import com.practiceProject.ecommece.request.LoginRequest;
 import com.practiceProject.ecommece.response.AuthResponse;
@@ -41,7 +41,7 @@ public class AuthController {
                           PasswordEncoder passwordEncoder,
                           CustomerUserServiceImplementation customDetailService,
                           JwtProvider jwtProvider,
-                          CartService cartService){
+                          CartService cartService) {
 
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
@@ -64,7 +64,7 @@ public class AuthController {
         User ifAlreadyInUse = userRepository.findByEmail(email);
 
         //checking if email given by user is already in use or not
-        if(ifAlreadyInUse != null){
+        if (ifAlreadyInUse != null) {
 
             throw new UserException("Email is Already Registered");
 
@@ -98,7 +98,7 @@ public class AuthController {
     }
 
     @PostMapping("/sign-in")
-    public ResponseEntity<AuthResponse> loginUserHandler(@RequestBody LoginRequest loginRequest) throws UserException{
+    public ResponseEntity<AuthResponse> loginUserHandler(@RequestBody LoginRequest loginRequest) throws UserException {
 
         //Extracting the email and password from the loginRequest class
         String username = loginRequest.getEmail();
@@ -123,13 +123,13 @@ public class AuthController {
     private Authentication authenticate(String username, String password) {
 
         UserDetails userDetails = customDetailService.loadUserByUsername(username);
-        if(userDetails == null){
+        if (userDetails == null) {
 
             throw new BadCredentialsException("Invalid Username");
 
         }
 
-        if(!passwordEncoder.matches(password,userDetails.getPassword())){
+        if (!passwordEncoder.matches(password, userDetails.getPassword())) {
 
             throw new BadCredentialsException("Invalid Password");
 
