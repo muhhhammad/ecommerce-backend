@@ -5,7 +5,7 @@ public class RatingRequest {
     private Long productId;
     private Double rating;
 
-    public RatingRequest(){
+    public RatingRequest() {
 
     }
 

@@ -5,7 +5,7 @@ public class ReviewRequest {
     private Long productId;
     private String review;
 
-    public ReviewRequest(){
+    public ReviewRequest() {
 
     }
 

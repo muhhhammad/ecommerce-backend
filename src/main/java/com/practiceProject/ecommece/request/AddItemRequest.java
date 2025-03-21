@@ -7,7 +7,7 @@ public class AddItemRequest {
     private int quantity;
     private Integer price;
 
-    public AddItemRequest(){
+    public AddItemRequest() {
 
     }
 
